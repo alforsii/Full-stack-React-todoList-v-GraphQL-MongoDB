@@ -1,0 +1,41 @@
+# Get todos
+{
+  todos {
+    id
+    title
+  }
+}
+
+# Find todo by id
+{
+  todo(id: "5ee6151fb1ef081e316da552") {
+    id
+    title
+    completed
+  }
+}
+
+# add new todo
+mutation addNewTodo($id: Int!, $title: String!, $completed: Boolean!) {
+  addTodo(id: $id, title: $title, completed: $completed) {
+    id
+    title
+    completed
+  }
+}
+
+# remove todo
+mutation removeTodo($id: String!) {
+  removeTodoById(id: $id) {
+    id
+  }
+}
+
+# update todo
+mutation updateTodo($id: String!, $t: String!, $completed: Boolean!) {
+  updateTodoById(id: $id, title: $t, completed: $completed) {
+    id
+    title
+    completed
+  }
+}
