@@ -16,6 +16,7 @@ const TodoType = new GraphQLObjectType({
   name: 'Todo',
   fields: () => ({
     id: { type: GraphQLID },
+    _id: { type: GraphQLString },
     title: { type: GraphQLString },
     completed: { type: GraphQLBoolean },
   }),
@@ -36,7 +37,7 @@ const ReadQueries = new GraphQLObjectType({
     todo: {
       type: TodoType,
       args: {
-        id: { type: GraphQLNonNull(GraphQLID) },
+        id: { type: GraphQLNonNull(GraphQLString) },
       },
       resolve: (root, args, context, info) => {
         return Todo.findById(args.id).exec();
