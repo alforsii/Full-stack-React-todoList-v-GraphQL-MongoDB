@@ -27,8 +27,8 @@ const ReadQueries = new GraphQLObjectType({
   fields: {
     //get all todos from mongoDB todos collections
     todos: {
-      type: GraphQLList(TodoType),
-      resolve: (root, args, context, info) => {
+      type: new GraphQLList(TodoType),
+      resolve: () => {
         return Todo.find().exec();
       },
     },
