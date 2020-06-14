@@ -1,4 +1,4 @@
-const Todo = require('../models/Todos.model');
+const Todo = require('../models/Todo.model');
 
 const {
   GraphQLObjectType,
@@ -46,7 +46,7 @@ const ReadQueries = new GraphQLObjectType({
 });
 
 // Mutations - POST - ADD,REMOVE and UPDATE
-const MutateQuery = new GraphQLObjectType({
+const MutateQueries = new GraphQLObjectType({
   name: 'Mutation',
   fields: {
     //create todo
@@ -109,5 +109,5 @@ const MutateQuery = new GraphQLObjectType({
 
 module.exports = new GraphQLSchema({
   query: ReadQueries,
-  mutation: MutateQuery,
+  mutation: MutateQueries,
 });

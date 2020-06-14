@@ -1,5 +1,6 @@
 require('../configs/db.config');
-const Todo = require('../models/Todos.model');
+//Create todos seed
+const Todo = require('../models/Todo.model');
 
 const todos = [
   {
