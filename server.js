@@ -1,20 +1,22 @@
 const express = require('express');
-const graphqlHTTP = require('express-graphql');
-const schema = require('./schema');
+const expressGraphQL = require('express-graphql');
+const schema = require('./schemas/schema');
 
 const app = express();
+// const cors = require('cors');
+require('./configs/db.config');
 
 app.use(
-  '/hello-graphQL',
-  graphqlHTTP({
+  '/graphql',
+  expressGraphQL({
     schema,
     graphiql: true,
   })
 );
 
-app.get('/', (req, res) => {
-  res.status(200).json({ message: 'Connected...' });
-});
+// app.use(cors());
+
+app.use('/', require('./routes/todos-routes'));
 
 const PORT = process.env.PORT || 5000;
 
