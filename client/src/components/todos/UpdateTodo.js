@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Button } from 'antd';
+import { Modal } from 'antd';
 
 import { graphql } from 'react-apollo';
 
@@ -80,17 +80,17 @@ export const UpdateTodo = ({
               className="form-control"
             />
           </div>
-          <div class="form-check">
+          <div className="form-check">
             <input
               type="checkbox"
-              class="form-check-input"
+              className="form-check-input"
               id="completed"
               checked={todo.completed}
               onChange={(e) =>
                 setTodo({ ...todo, completed: e.target.checked })
               }
             />
-            <label class="form-check-label" htmlFor="completed">
+            <label className="form-check-label" htmlFor="completed">
               Completed
             </label>
           </div>

@@ -6,8 +6,8 @@ import classnames from 'classnames';
 import UpdateTodo from './UpdateTodo';
 import { removeTodoMutation, getTodosQuery } from '../../queries/Queries';
 
-export const Todo = ({ todo }) => {
-  const { _id, title, completed, removeTodoMutation } = todo;
+export const Todo = ({ todo, removeTodoMutation }) => {
+  const { _id, title, completed } = todo;
   return (
     <ul className="col-md-4 pt-2 ">
       <blockquote className="blockquote">
