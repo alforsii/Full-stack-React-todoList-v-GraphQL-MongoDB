@@ -10,10 +10,20 @@ export const Todo = ({ todo }) => {
   const { _id, title, completed, removeTodoMutation } = todo;
   return (
     <ul className="col-md-4 pt-2 ">
-      <div>
+      <blockquote className="blockquote">
         <li className="list-group-item">ID: {_id} </li>
-        <li className="list-group-item">
-          <Link to={`/todo/${_id}`}>Title: {title}</Link>
+        <li className="list-group-item blockquote-footer">
+          <Link to={`/todo/${_id}`}>
+            Title:{' '}
+            <span
+              className={classnames({
+                'text-muted line-through': completed,
+                'text-muted': !completed,
+              })}
+            >
+              {title}
+            </span>
+          </Link>
         </li>
         <li className="list-group-item">
           Completed:{' '}
@@ -26,21 +36,23 @@ export const Todo = ({ todo }) => {
             {completed ? 'Yes' : 'No'}
           </span>{' '}
         </li>
+      </blockquote>
+      <div className="d-flex align-items-center">
+        <button
+          onClick={() =>
+            removeTodoMutation({
+              variables: {
+                id: _id,
+              },
+              refetchQueries: [{ query: getTodosQuery }],
+            })
+          }
+          className="btn btn-danger m-2"
+        >
+          Remove
+        </button>
+        <UpdateTodo todo={todo} />
       </div>
-      <button
-        onClick={() =>
-          removeTodoMutation({
-            variables: {
-              id: _id,
-            },
-            refetchQueries: [{ query: getTodosQuery }],
-          })
-        }
-        className="btn btn-danger m-2"
-      >
-        remove
-      </button>
-      <UpdateTodo todo={todo} />
     </ul>
   );
 };

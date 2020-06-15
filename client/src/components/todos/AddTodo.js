@@ -18,7 +18,7 @@ export const AddTodo = (props) => {
     setTodo({ title: '' });
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="m-auto" style={{ width: '300px' }}>
       <div className="form-group">
         <label htmlFor="title">Title</label>
         <input

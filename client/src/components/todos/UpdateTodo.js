@@ -59,9 +59,9 @@ export const UpdateTodo = ({
 
   return (
     <div>
-      <Button type="primary" onClick={showModal}>
+      <button className="btn btn-primary" onClick={showModal}>
         Update
-      </Button>
+      </button>
       <Modal
         title="Update todo"
         visible={visible}
@@ -80,17 +80,19 @@ export const UpdateTodo = ({
               className="form-control"
             />
           </div>
-          <div className="form-group">
+          <div class="form-check">
             <input
               type="checkbox"
-              checked={todo.completed}
+              class="form-check-input"
               id="completed"
-              className="m-2"
+              checked={todo.completed}
               onChange={(e) =>
                 setTodo({ ...todo, completed: e.target.checked })
               }
             />
-            <label htmlFor="completed">Completed</label>
+            <label class="form-check-label" htmlFor="completed">
+              Completed
+            </label>
           </div>
         </form>
       </Modal>
