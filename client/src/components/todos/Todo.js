@@ -1,21 +1,19 @@
 import React from 'react';
+import { graphql } from 'react-apollo';
 import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 
-export default function Todo({ _id, id, title, completed }) {
+import UpdateTodo from './UpdateTodo';
+import { removeTodoMutation, getTodosQuery } from '../../queries/Queries';
+
+export const Todo = ({ todo }) => {
+  const { _id, title, completed, removeTodoMutation } = todo;
   return (
-    <React.Fragment>
-      <ul>
-        <li className="list-group-item">ID: {id} </li>
+    <ul className="col-md-4 pt-2 ">
+      <div>
+        <li className="list-group-item">ID: {_id} </li>
         <li className="list-group-item">
-          <Link
-            to={{
-              pathname: `/todo/${_id}`,
-              state: { id, title, completed },
-            }}
-          >
-            Title: {title}
-          </Link>
+          <Link to={`/todo/${_id}`}>Title: {title}</Link>
         </li>
         <li className="list-group-item">
           Completed:{' '}
@@ -28,7 +26,25 @@ export default function Todo({ _id, id, title, completed }) {
             {completed ? 'Yes' : 'No'}
           </span>{' '}
         </li>
-      </ul>
-    </React.Fragment>
+      </div>
+      <button
+        onClick={() =>
+          removeTodoMutation({
+            variables: {
+              id: _id,
+            },
+            refetchQueries: [{ query: getTodosQuery }],
+          })
+        }
+        className="btn btn-danger m-2"
+      >
+        remove
+      </button>
+      <UpdateTodo todo={todo} />
+    </ul>
   );
-}
+};
+
+export default graphql(removeTodoMutation, { name: 'removeTodoMutation' })(
+  Todo
+);

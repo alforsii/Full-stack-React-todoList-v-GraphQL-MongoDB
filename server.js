@@ -21,7 +21,7 @@ app.use(
   })
 );
 
-// app.use('/', require('./routes/todos-routes'));
+app.use('/', require('./routes/todos-routes'));
 
 const PORT = process.env.PORT || 3001;
 

@@ -1,50 +1,26 @@
 import React from 'react';
-import graphql from 'graphql-tag';
-import { Query } from 'react-apollo';
-import classnames from 'classnames';
+import { graphql } from 'react-apollo';
+import { getTodoQuery } from '../../queries/Queries';
+import Todo from './Todo';
 
-const TODO_QUERY = graphql`
-  query Todos($id: String!) {
-    todo(id: $id) {
-      id
-      title
-      completed
+export const TodoDetails = (props) => {
+  const displayTodo = () => {
+    const { loading, todo } = props.data;
+    if (loading) {
+      return <h4>Loading...</h4>;
+    } else {
+      return <Todo key={todo._id} {...todo} />;
     }
-  }
-`;
+  };
+  return <React.Fragment>{displayTodo()}</React.Fragment>;
+};
 
-export default function Todo(props) {
-  let { id } = props.match.params;
-  return (
-    <React.Fragment>
-      <Query query={TODO_QUERY} variables={{ id }}>
-        {({ loading, error, data }) => {
-          if (loading) {
-            return <h4>Loading...</h4>;
-          } else if (error) {
-            return console.log(error);
-          } else {
-            const { id, title, completed } = data.todo;
-            return (
-              <ul>
-                <li className="list-group-item">ID: {id} </li>
-                <li className="list-group-item">Title: {title}</li>
-                <li className="list-group-item">
-                  Completed:{' '}
-                  <span
-                    className={classnames({
-                      'text-success': completed,
-                      'text-danger': !completed,
-                    })}
-                  >
-                    {completed ? 'Yes' : 'No'}
-                  </span>{' '}
-                </li>
-              </ul>
-            );
-          }
-        }}
-      </Query>
-    </React.Fragment>
-  );
-}
+export default graphql(getTodoQuery, {
+  options: (props) => {
+    return {
+      variables: {
+        id: props.match.params.id,
+      },
+    };
+  },
+})(TodoDetails);

@@ -23,7 +23,7 @@ const TodoType = new GraphQLObjectType({
 });
 
 // Readings - GET
-const ReadQueries = new GraphQLObjectType({
+const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: {
     //get all todos from mongoDB todos collections
@@ -47,16 +47,14 @@ const ReadQueries = new GraphQLObjectType({
 });
 
 // Mutations - POST - ADD,REMOVE and UPDATE
-const MutateQueries = new GraphQLObjectType({
+const Mutation = new GraphQLObjectType({
   name: 'Mutation',
   fields: {
     //create todo
     addTodo: {
       type: TodoType,
       args: {
-        id: { type: GraphQLNonNull(GraphQLInt) },
         title: { type: GraphQLNonNull(GraphQLString) },
-        completed: { type: GraphQLNonNull(GraphQLBoolean) },
       },
       resolve: (root, args, context, info) => {
         //1.One way - Create
@@ -97,7 +95,7 @@ const MutateQueries = new GraphQLObjectType({
         completed: { type: GraphQLNonNull(GraphQLBoolean) },
       },
       resolve: (root, args, context, info) => {
-        //2.remove by our id - which is a number
+        //1.update by id
         return Todo.findByIdAndUpdate(
           args.id,
           { title: args.title, completed: args.completed },
@@ -109,6 +107,6 @@ const MutateQueries = new GraphQLObjectType({
 });
 
 module.exports = new GraphQLSchema({
-  query: ReadQueries,
-  mutation: MutateQueries,
+  query: RootQuery,
+  mutation: Mutation,
 });
