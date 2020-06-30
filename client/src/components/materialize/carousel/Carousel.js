@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import M from 'materialize-css';
-import './init';
+// import './init';
 
 export default function Carousel() {
   useEffect(() => {
-    // console.log('Carousel');
+    console.log('Carousel');
     const carousel = document.querySelectorAll('.carousel');
     M.Carousel.init(carousel, {});
   }, []);
@@ -21,7 +21,7 @@ export default function Carousel() {
     <div className="carousel">
       {imgs.map((img, i) => (
         <a className="carousel-item" href={`#${i}`} key={i}>
-          <img src={img.src} />
+          <img src={img.src} alt="random-img" />
         </a>
       ))}
     </div>

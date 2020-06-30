@@ -1,14 +1,29 @@
 import React from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
-import Carousel from './carousel/Carousel';
+import { Link } from 'react-router-dom';
 
 export default function Materialize() {
   return (
     <>
-      <h4 className="center-align">Materialize</h4>
+      <h4 className="center-align">Materialize components</h4>
       <div className="divider"></div>
       <div className="container">
-        <Link to="/materialize/carousel">Carousel</Link>
+        <ul>
+          <li className="">
+            <Link to="/materialize/img/carousel">Carousel</Link>
+          </li>
+          <li className="">
+            <Link to="/materialize/tap-target">Tap Target</Link>
+          </li>
+          <li className="">
+            <Link to="/materialize/collapsible">Collapsible</Link>
+          </li>
+          <li className="">
+            <Link to="/materialize/img/slider">Image Slider</Link>
+          </li>
+          <li className="">
+            <Link to="/materialize/img/materialboxed">Materialboxed</Link>
+          </li>
+        </ul>
       </div>
     </>
   );

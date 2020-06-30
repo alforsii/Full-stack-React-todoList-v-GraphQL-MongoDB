@@ -8,7 +8,8 @@ import * as serviceWorker from './serviceWorker';
 // import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 // import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
-import './components/materialize/js/init';
+// M init all
+// import './components/materialize/js/init';
 import './index.css';
 import App from './App';
 const uri = process.env.REACT_APP_BASE_URL;
