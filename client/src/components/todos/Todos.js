@@ -3,6 +3,7 @@ import { graphql } from 'react-apollo';
 import { getTodosQuery } from '../../queries/Queries';
 
 import Todo from './Todo';
+import AddTodo from './AddTodo';
 
 export const Todos = (props) => {
   const displayTodos = () => {
@@ -14,7 +15,13 @@ export const Todos = (props) => {
     }
   };
 
-  return <div className="row bg-dark mx-2">{displayTodos()}</div>;
+  return (
+    <>
+      <AddTodo />
+      <br />
+      <div className="row bg-dark mx-2">{displayTodos()}</div>
+    </>
+  );
 };
 
 export default graphql(getTodosQuery)(Todos);
