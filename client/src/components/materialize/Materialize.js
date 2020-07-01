@@ -8,20 +8,32 @@ export default function Materialize() {
       <div className="divider"></div>
       <div className="container">
         <ul>
-          <li className="">
+          <li>
             <Link to="/materialize/img/carousel">Carousel</Link>
           </li>
-          <li className="">
+          <li>
             <Link to="/materialize/tap-target">Tap Target</Link>
           </li>
-          <li className="">
-            <Link to="/materialize/collapsible">Collapsible</Link>
+          <li>
+            <Link to="/materialize/card/collapsible">Collapsible</Link>
           </li>
-          <li className="">
+          <li>
+            <Link to="/materialize/card/cardImage">Card image</Link>
+          </li>
+          <li>
             <Link to="/materialize/img/slider">Image Slider</Link>
           </li>
-          <li className="">
+          <li>
             <Link to="/materialize/img/materialboxed">Materialboxed</Link>
+          </li>
+          <li>
+            <Link to="/materialize/media/video">Responsive video</Link>
+          </li>
+          <li>
+            <Link to="/materialize/table">Table</Link>
+          </li>
+          <li>
+            <Link to="/materialize/scale">Scaled transition</Link>
           </li>
         </ul>
       </div>
