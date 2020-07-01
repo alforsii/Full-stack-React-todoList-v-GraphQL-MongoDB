@@ -19,7 +19,7 @@ export const Todos = (props) => {
     <>
       <AddTodo />
       <br />
-      <div className="row bg-dark mx-2">{displayTodos()}</div>
+      <div className="row">{displayTodos()}</div>
     </>
   );
 };

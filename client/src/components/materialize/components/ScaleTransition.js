@@ -17,18 +17,18 @@ export default function Carousel() {
         <a
           id="scale-demo"
           href="#!"
-          class="btn-floating btn-large scale-transition"
+          className="btn-floating btn-large scale-transition"
         >
-          <i class="material-icons">add</i>
+          <i className="material-icons">add</i>
         </a>
 
         {/* <!-- Scaled out --> */}
         <a
           id="scale-demo"
           href="#!"
-          class="btn-floating btn-large scale-transition scale-out"
+          className="btn-floating btn-large scale-transition scale-out"
         >
-          <i class="material-icons">add</i>
+          <i className="material-icons">add</i>
         </a>
       </div>
     </div>

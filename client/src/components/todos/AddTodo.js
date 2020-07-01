@@ -29,7 +29,7 @@ export const AddTodo = (props) => {
           className="form-control"
         />
       </div>
-      <button type="submit" className="btn btn-primary">
+      <button type="submit" className="btn">
         Add Todo
       </button>
     </form>

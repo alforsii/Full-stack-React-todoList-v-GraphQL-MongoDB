@@ -9,51 +9,54 @@ import { removeTodoMutation, getTodosQuery } from '../../queries/Queries';
 export const Todo = ({ todo, removeTodoMutation }) => {
   const { _id, title, completed } = todo;
   return (
-    <ul className="col-md-4 pt-2 ">
-      <blockquote className="blockquote">
-        <li className="list-group-item">ID: {_id} </li>
-        <li className="list-group-item blockquote-footer">
-          <Link to={`/todo/${_id}`}>
-            Title:{' '}
-            <span
-              className={classnames({
-                'text-muted line-through': completed,
-                'text-muted': !completed,
-              })}
-            >
-              {title}
-            </span>
-          </Link>
-        </li>
-        <li className="list-group-item">
-          Completed:{' '}
-          <span
-            className={classnames({
-              'text-success': completed,
-              'text-danger': !completed,
-            })}
+    <div className="col s12 m6">
+      <div className="card-panel hoverable">
+        <ul>
+          <blockquote className="blockquote">
+            <li className="list-group-item">ID: {_id} </li>
+            <li className="list-group-item blockquote-footer">
+              <Link to={`/todo/${_id}`}>
+                Title:{' '}
+                <span
+                  className={classnames({
+                    'text-muted line-through': completed,
+                    'text-muted': !completed,
+                  })}
+                >
+                  {title}
+                </span>
+              </Link>
+            </li>
+            <li className="list-group-item">
+              Completed:{' '}
+              <span
+                className={classnames({
+                  'text-success': completed,
+                  'text-danger': !completed,
+                })}
+              >
+                {completed ? 'Yes' : 'No'}
+              </span>{' '}
+            </li>
+          </blockquote>
+          <div className="divider"></div>
+          <button
+            onClick={() =>
+              removeTodoMutation({
+                variables: {
+                  id: _id,
+                },
+                refetchQueries: [{ query: getTodosQuery }],
+              })
+            }
+            className="btn red m4"
           >
-            {completed ? 'Yes' : 'No'}
-          </span>{' '}
-        </li>
-      </blockquote>
-      <div className="d-flex align-items-center">
-        <button
-          onClick={() =>
-            removeTodoMutation({
-              variables: {
-                id: _id,
-              },
-              refetchQueries: [{ query: getTodosQuery }],
-            })
-          }
-          className="btn btn-danger m-2"
-        >
-          Remove
-        </button>
-        <UpdateTodo todo={todo} />
+            Remove
+          </button>
+          <UpdateTodo todo={todo} />
+        </ul>
       </div>
-    </ul>
+    </div>
   );
 };
 

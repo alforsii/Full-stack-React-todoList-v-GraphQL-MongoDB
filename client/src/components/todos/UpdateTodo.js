@@ -58,8 +58,8 @@ export const UpdateTodo = ({
   };
 
   return (
-    <div>
-      <button className="btn btn-primary" onClick={showModal}>
+    <>
+      <button className="btn blue" onClick={showModal}>
         Update
       </button>
       <Modal
@@ -96,7 +96,7 @@ export const UpdateTodo = ({
           </div>
         </form>
       </Modal>
-    </div>
+    </>
   );
 };
 
