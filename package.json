@@ -11,7 +11,9 @@
     "express": "^4.17.1",
     "express-graphql": "^0.9.0",
     "graphql": "^15.1.0",
-    "mongoose": "^5.9.18"
+    "mongoose": "^5.9.18",
+    "node-fetch": "^2.6.0",
+    "unsplash-js": "^6.0.0"
   },
   "devDependencies": {},
   "scripts": {

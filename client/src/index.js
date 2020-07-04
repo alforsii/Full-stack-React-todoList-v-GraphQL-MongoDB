@@ -5,7 +5,7 @@ import { ApolloProvider } from 'react-apollo';
 import { BrowserRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
-// import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 // import 'materialize-css'; // It installs the JS asset only
 import 'materialize-css/dist/css/materialize.min.css';
 // M init all
