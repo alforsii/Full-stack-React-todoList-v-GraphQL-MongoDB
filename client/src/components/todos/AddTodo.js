@@ -9,6 +9,9 @@ export const AddTodo = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(todo);
+    if (!todo.title) {
+      return setTodo({ ...todo, message: 'Please enter title!' });
+    }
     props.addTodoMutation({
       variables: {
         title: todo.title,
@@ -19,6 +22,7 @@ export const AddTodo = (props) => {
   };
   return (
     <form onSubmit={handleSubmit} className="m-auto" style={{ width: '300px' }}>
+      <p className="red-text">{todo.message && todo.message}</p>
       <div className="form-group">
         <label htmlFor="title">Title</label>
         <input

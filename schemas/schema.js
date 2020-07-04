@@ -1,12 +1,14 @@
 const { GraphQLObjectType, GraphQLSchema } = require('graphql');
 
 const { todosQueries, todosMutations } = require('./todos');
+const { launchQueries } = require('./spaceX');
 
 // Readings - GET
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: {
     ...todosQueries,
+    ...launchQueries,
   },
 });
 
