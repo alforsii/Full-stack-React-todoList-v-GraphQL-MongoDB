@@ -16,6 +16,9 @@ export default function Navbar() {
                 <Link to="/todos">Todos</Link>
               </li>
               <li>
+                <Link to="/infinite-scroll">Infinite_Scroll</Link>
+              </li>
+              <li>
                 <Link to="/materialize">Materialize</Link>
               </li>
               {/* <!-- Dropdown Trigger --> */}

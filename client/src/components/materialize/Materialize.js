@@ -24,12 +24,6 @@ export default function Materialize() {
   return (
     <>
       <h4 className="center-align">Materialize components</h4>
-      <button className="btn red m4">Remove</button>
-      <button className="btn red ">Remove</button>
-      <h4 className="truncate">
-        This is an extremely long title that will be truncated
-      </h4>
-
       <div className="divider"></div>
       <div className="container">
         <ul>

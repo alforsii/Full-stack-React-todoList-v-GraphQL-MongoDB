@@ -3,10 +3,10 @@
 }
 .pagination-custom button:first-child {
 }
-.pagination-custom button:hover {
+/* .pagination-custom button:hover {
   background-color: rgba(229, 231, 231, 0.877);
-}
+} */
 /* .pagination-custom button:focus {
-  background-color: red;
+  background-color: gray;
   color: white;
 } */

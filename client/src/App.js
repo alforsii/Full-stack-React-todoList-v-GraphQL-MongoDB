@@ -1,8 +1,11 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
+import InfiniteScroll from './components/infinite_scroll/InfiniteScroll';
+
 import Todos from './components/todos/Todos';
 import TodoDetails from './components/todos/TodoDetails';
+
 import Materialize from './components/materialize/Materialize';
 import Navbar from './components/materialize/components/navbar/Navbar';
 import Carousel from './components/materialize/components/Carousel';
@@ -31,6 +34,7 @@ const App = () => {
       <div className="container">
         <Switch>
           <Route exact path="/todos" component={Todos} />
+          <Route exact path="/infinite-scroll" component={InfiniteScroll} />
           <Route exact path="/todo/:id" component={TodoDetails} />
 
           <Route exact path={base} component={Materialize} />
