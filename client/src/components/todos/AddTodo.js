@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { graphql } from 'react-apollo';
-import { addTodoMutation, getTodosQuery } from '../../queries/Queries';
+import { addTodoMutation, getTodosQuery } from '../../queries/todoQueries';
 
 export const AddTodo = (props) => {
   const [todo, setTodo] = useState({

@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from 'antd';
-
 import { graphql } from 'react-apollo';
-
-import { updateTodoMutation, getTodosQuery } from '../../queries/Queries';
+import { updateTodoMutation, getTodosQuery } from '../../queries/todoQueries';
 
 export const UpdateTodo = ({
   updateTodoMutation,
@@ -70,29 +68,32 @@ export const UpdateTodo = ({
         onCancel={handleCancel}
       >
         <form>
-          <div className="form-group">
-            <label htmlFor="title">Title</label>
-            <input
-              onChange={(e) => setTodo({ ...todo, title: e.target.value })}
-              type="text"
-              id="title"
-              value={todo.title}
-              className="form-control"
-            />
-          </div>
-          <div className="form-check">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              id="completed"
-              checked={todo.completed}
-              onChange={(e) =>
-                setTodo({ ...todo, completed: e.target.checked })
-              }
-            />
-            <label className="form-check-label" htmlFor="completed">
-              Completed
-            </label>
+          <div className="row">
+            <div className="input-field s12">
+              <label htmlFor="title">Title</label>
+              <input
+                onChange={(e) => setTodo({ ...todo, title: e.target.value })}
+                type="text"
+                id="title"
+                value={todo.title}
+                className="validate"
+                autoFocus={true}
+              />
+            </div>
+            <div className="input-field s12">
+              <label>
+                <input
+                  id="completed"
+                  type="checkbox"
+                  checked={todo.completed}
+                  onChange={(e) => {
+                    // console.log(e.target.checked);
+                    setTodo({ ...todo, completed: e.target.checked });
+                  }}
+                />
+                <span>Completed</span>
+              </label>
+            </div>
           </div>
         </form>
       </Modal>

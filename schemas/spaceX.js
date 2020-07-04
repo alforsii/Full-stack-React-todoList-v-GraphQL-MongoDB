@@ -5,7 +5,7 @@ const {
   GraphQLList,
   GraphQLString,
   GraphQLBoolean,
-  // GraphQLNonNull,
+  GraphQLNonNull,
   GraphQLID,
   GraphQLInt,
 } = require('graphql');
@@ -15,7 +15,6 @@ const LaunchType = new GraphQLObjectType({
   name: 'launch',
   fields: () => ({
     id: { type: GraphQLID },
-    links: { type: GraphQLString },
     success: { type: GraphQLBoolean },
     flight_number: { type: GraphQLInt },
     rocket: { type: GraphQLString },
@@ -35,15 +34,28 @@ const launchQueries = {
       });
     },
   },
+  launch: {
+    type: LaunchType,
+    args: {
+      flight_number: { type: GraphQLNonNull(GraphQLInt) },
+    },
+    resolve: (root, args, context, info) => {
+      return axios
+        .get(`https://api.spacexdata.com/v4/launches`)
+        .then(
+          (res) =>
+            res.data.filter(
+              (launch) => launch.flight_number == args.flight_number
+            )[0]
+        );
+    },
+  },
   latestLaunch: {
     type: LaunchType,
     resolve: () => {
       return axios
         .get('https://api.spacexdata.com/v4/launches/latest')
-        .then((res) => {
-          // console.log(res.data);
-          return res.data;
-        });
+        .then((res) => res.data);
     },
   },
 };

@@ -20,6 +20,7 @@ export default function Materialize() {
     { name: 'Collections', url: '/materialize/collections' },
     { name: 'Floating actions', url: '/materialize/floating' },
     { name: 'Pagination', url: '/materialize/pagination' },
+    { name: 'Modal', url: '/materialize/modal' },
   ];
   return (
     <>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'react-apollo';
-import { getTodosQuery } from '../../queries/Queries';
+import { getTodosQuery } from '../../queries/todoQueries';
 
 import Todo from './Todo';
 import AddTodo from './AddTodo';

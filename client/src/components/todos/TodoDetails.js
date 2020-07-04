@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'react-apollo';
-import { getTodoQuery } from '../../queries/Queries';
+import { getTodoQuery } from '../../queries/todoQueries';
 import Todo from './Todo';
 
 export const TodoDetails = (props) => {
@@ -9,7 +9,8 @@ export const TodoDetails = (props) => {
     if (loading) {
       return <h4>Loading...</h4>;
     } else {
-      return <Todo key={todo._id} {...todo} />;
+      console.log(todo);
+      return <Todo key={todo._id} todo={todo} />;
     }
   };
   return <React.Fragment>{displayTodo()}</React.Fragment>;

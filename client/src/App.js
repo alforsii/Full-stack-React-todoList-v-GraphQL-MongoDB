@@ -1,7 +1,9 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import InfiniteScroll from './components/infinite_scroll/InfiniteScroll';
+import Launch from './components/spaceX/Launch';
+import LatestLaunch from './components/spaceX/LatestLaunch';
+import Launches from './components/spaceX/Launches';
 
 import Todos from './components/todos/Todos';
 import TodoDetails from './components/todos/TodoDetails';
@@ -23,6 +25,7 @@ import Buttons from './components/materialize/components/Buttons';
 import FloatingAction from './components/materialize/components/FloatingAction';
 import Collections from './components/materialize/components/Collections';
 import Pagination from './components/materialize/components/Pagination';
+import Modal from './components/materialize/components/Modal';
 import './App.css';
 
 const App = () => {
@@ -34,8 +37,10 @@ const App = () => {
       <div className="container">
         <Switch>
           <Route exact path="/todos" component={Todos} />
-          <Route exact path="/infinite-scroll" component={InfiniteScroll} />
           <Route exact path="/todo/:id" component={TodoDetails} />
+          <Route exact path="/launches" component={Launches} />
+          <Route exact path="/launches/latest" component={LatestLaunch} />
+          <Route exact path="/launches/:id" component={Launch} />
 
           <Route exact path={base} component={Materialize} />
           <Route exact path={`${base}/table`} component={Table} />
@@ -52,6 +57,7 @@ const App = () => {
           <Route exact path={`${base}/slider`} component={ImageSlider} />
           <Route exact path={`${base}/video`} component={Video} />
           <Route exact path={`${base}/pagination`} component={Pagination} />
+          <Route exact path={`${base}/modal`} component={Modal} />
           <Route
             exact
             path={`${base}/materialboxed`}

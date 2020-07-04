@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 
 import UpdateTodo from './UpdateTodo';
-import { removeTodoMutation, getTodosQuery } from '../../queries/Queries';
+import { removeTodoMutation, getTodosQuery } from '../../queries/todoQueries';
 
 export const Todo = ({ todo, removeTodoMutation }) => {
   const { _id, title, completed } = todo;
@@ -12,7 +12,7 @@ export const Todo = ({ todo, removeTodoMutation }) => {
     <div className="col s12 m6">
       <div className="card-panel hoverable">
         <ul>
-          <blockquote className="blockquote">
+          <blockquote>
             <li className="list-group-item">ID: {_id} </li>
             <li className="list-group-item blockquote-footer">
               <Link to={`/todo/${_id}`}>
@@ -31,8 +31,8 @@ export const Todo = ({ todo, removeTodoMutation }) => {
               Completed:{' '}
               <span
                 className={classnames({
-                  'text-success': completed,
-                  'text-danger': !completed,
+                  'green-text': completed,
+                  'red-text': !completed,
                 })}
               >
                 {completed ? 'Yes' : 'No'}

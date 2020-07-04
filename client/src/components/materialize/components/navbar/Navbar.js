@@ -8,7 +8,7 @@ export default function Navbar() {
       <nav className="blue">
         <div className="container">
           <div className="nav-wrapper">
-            <Link to="/" className="brand-logo">
+            <Link to="/" className="brand-logo left">
               Logo
             </Link>
             <ul className="right hide-on-sm-and-down">
@@ -16,7 +16,7 @@ export default function Navbar() {
                 <Link to="/todos">Todos</Link>
               </li>
               <li>
-                <Link to="/infinite-scroll">Infinite_Scroll</Link>
+                <Link to="/launches">Launches</Link>
               </li>
               <li>
                 <Link to="/materialize">Materialize</Link>
