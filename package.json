@@ -13,7 +13,9 @@
     "graphql": "^15.1.0",
     "mongoose": "^5.9.18"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
